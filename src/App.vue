@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <Navbar />
+    <main class="main-content">
+      <router-view />
+    </main>
+    <FooterComponent />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/NavbarComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+    FooterComponent
   }
-}
+};
 </script>
 
 <style>
+/* Full-height layout using Flexbox */
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; /* Fills the remaining height */
+  padding-bottom: 40px; /* Optional: space between content and footer */
 }
 </style>
